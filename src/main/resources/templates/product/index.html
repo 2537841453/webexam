@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+</head>
+<body>
+This is product list page.<br>
+<!--<form action="/SystemAccount/Index" method="get">
+    <input type="submit" value="账号管理">
+</form>-->
+<table border="1">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>type</td>
+        <td>编辑</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product:${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.productType}"></td>
+        <td><a th:href="@{'Delete/'+${product.id}}">删除</a>
+            <a th:href="@{'Edit/'+${product.id}}">修改</a>
+        </td>
+    </tr>
+    </tbody>
+  <!--  <div th:each="${products}">
+    </div>-->
+    <a th:href="@{'Create'}">添加</a>
+</table>
+<form action="/Account/SignOut" method="get">
+    <input type="submit" value="退出登录">
+</form>
+</body>
+</html>

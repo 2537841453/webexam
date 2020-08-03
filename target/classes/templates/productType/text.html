@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+    <script type="text/javascript" src="../js/jquery-1.4.4.min.js" ></script>
+<!--    <link rel="stylesheet" href="css/metroStyle/metroStyle.css" rel="stylesheet" type="text/css" />-->
+    <script type="text/javascript" src="../js/jquery.ztree.all.js" ></script>
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css" />
+    <style>
+        body{
+            background-color: #C0C0C0;
+        }
+    .top{
+        width: 835px;
+        height: 220px;
+        background-color:#FFFFFF;
+        margin:0 auto;
+        margin-bottom:35px ;
+    }
+    .top1{
+        font-size: 20px;
+        font-weight: bold;
+        color: crimson;
+        position:relative;
+        left: 300px;
+        top: -200px;
+    }
+        .left{
+            margin-left: 10px;
+            margin-top: 10px;
+            width: 270px;
+            height: 190px;
+        }
+        .body-left{
+            width: 215px;
+            height: 370px;
+            background-color:#FFFFFF;
+            margin-left: 248px;
+        }
+        .body-right{
+            width: 615px;
+            height: 370px;
+            background-color:#FFFFFF;
+            float: right;
+            margin-top: -370px;
+            margin-right: 250px;
+        }
+        .view{
+            width: 595px;
+            height: 345px;
+            margin: 5px 10px;
+        }
+        #head{
+            width:400px;
+            height:30px;
+        }
+        #head ul{
+            padding:0;
+            margin:0;
+        }
+        #head ul li{
+            list-style:none;
+            float:left;
+            text-decoration:none;
+            display:block;
+            width:50px;
+            padding:5px;
+            position:relative;
+            font-size: 10px;
+            top: -26px;
+            border-radius: 5px 5px 0 0;
+        }
+        #head ul li a{
+            text-decoration:none;
+            color:#000000;
+        }
+        #head ul li a:visited{
+            text-decoration:none;
+            color:#000000;
+        }
+
+        #L1{
+            background-color:#9CC;
+            border-top-color: #F6C;
+            border-right-color: #F6C;
+            border-left-color: #F6C;
+        }
+        #L2{
+            background-color:#CC9;
+            border-color:#309;
+        }
+
+        #L3{
+            background-color:#FF3;
+            border-color:#360;
+        }
+        #L4{
+            background-color:#690;
+            border-color:#360;
+        }
+
+
+        #d2{
+            background-color:#CC9;
+            border:1px solid #FFFFFF;
+            display:none;
+            width:214px;
+            height:369px;
+            margin-top:-30px;
+            position:absolute;
+            z-index:1;
+        }
+        #d3{
+            background-color:#FF3;
+            border:1px solid #FFFFFF;
+            display:none;
+            width:214px;
+            height:369px;
+            margin-top:-30px;
+            position:absolute;
+            z-index:1;
+        }
+        .img{
+            position:relative;
+            left: 300px;
+            top: -210px;
+            width: 20px;
+            height: 20px;
+        }
+        .top2{
+            position:relative;
+            left: 330px;
+            top: -245px;
+            color: deepskyblue;
+            font-size: 10px;
+        }
+        .top3{
+            position:relative;
+            left: 342px;
+            top: -273px;
+            font-size: 10px;
+        }
+        .img1{
+            position:relative;
+            left: 400px;
+            top: -302px;
+            width: 20px;
+            height: 20px;
+        }
+        .top4{
+            position:relative;
+            left: 425px;
+            top: -335px;
+            color: deepskyblue;
+            font-size: 10px;
+        }
+        .top5{
+            position:relative;
+            left: 455px;
+            top: -363px;
+            font-size: 10px;
+        }
+        .top6{
+            position:relative;
+            left: 300px;
+            top: -363px;
+            font-size: 10px;
+        }
+        .img2{
+            position:relative;
+            left: 300px;
+            top: -350px;
+            width: 20px;
+            height: 20px;
+        }
+        .top7{
+            position:relative;
+            left: 330px;
+            top: -383px;
+            font-size: 10px;
+            color: deepskyblue;
+        }
+        .top8{
+            position:relative;
+            left: 390px;
+            top: -411px;
+            font-size: 10px;
+        }
+        .img3{
+            position:relative;
+            left: 700px;
+            top: -390px;
+            width: 20px;
+            height: 20px;
+        }
+        .top9{
+            position:relative;
+            left: 723px;
+            top: -423px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top">
+    <img src="../image/1.png" class="left">
+    <p class="top1">抽奖系统</p>
+    <img src="../image/2.png" class="img">
+    <p class="top2">1</p>
+    <p class="top3">章节</p>
+    <img src="../image/3.png" class="img1">
+    <p class="top4">123</p>
+    <p class="top5">次播放</p>
+    <p class="top6">抽奖系统</p>
+    <img src="../image/2.png" class="img2">
+    <p class="top7">本课程共1</p>
+    <p class="top8">章节</p>
+    <img src="../image/4.png" class="img3">
+    <p class="top9">收藏课程</p>
+</div>
+<div class="body-left">
+    <div id="head">
+        <ul>
+            <li id="L1" onclick="Tab(1)"><a href="#">课程目录</a></li>
+            <li id="L2" onclick="Tab(2)"><a href="#">课程介绍</a></li>
+            <li id="L3" onclick="Tab(3)"><a href="#">课程资料</a></li>
+        </ul>
+    </div>
+
+    <div id="d1">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+    <div id="d2">
+        <ul>
+            <li>这里是今日热点</li>
+            <li>这里是今日热点</li>
+            <li>这里是今日热点</li>
+            <li>这里是今日热点</li>
+        </ul>
+    </div>
+    <div id="d3">
+        <ul>
+            <li>这里是最新新闻</li>
+            <li>这里是最新新闻</li>
+            <li>这里是最新新闻</li>
+            <li>这里是最新新闻</li>
+        </ul>
+    </div>
+
+</div>
+<div class="body-right">
+    <video src="" controls="controls" class="view"></video>
+</div>
+
+
+</body>
+<script language="javascript">
+    function Tab(num)
+    {
+
+        var i;
+        for(i=1;i<=3;i++)
+        {
+            if(i==num)
+                document.getElementById("d"+i).style.display="block";
+            else
+                document.getElementById("d"+i).style.display="none";
+        }
+    }
+    var settingss = {
+        data: {
+            simpleData: {
+                enable: true,  //true 、 false 分别表示 使用 、 不使用 简单数据模式
+                idKey: "id",  //节点数据中保存唯一标识的属性名称
+                pIdKey: "parentId",    //节点数据中保存其父节点唯一标识的属性名称
+                rootPId: -1  //用于修正根节点父节点数据，即 pIdKey 指定的属性值
+            },
+            key: {
+                name: "menuName"  //zTree 节点数据保存节点名称的属性名称  默认值："name"
+            }
+        },
+        check:{
+            enable:false,  //true 、 false 分别表示 显示 、不显示 复选框或单选框
+            nocheckInherit:true  //当父节点设置 nocheck = true 时，设置子节点是否自动继承 nocheck = true
+        }
+    };
+
+    //数据
+    var zNodes = [
+        //注意，数据中的 menuName 必须与 settingss 中key 中定义的name一致，否则找不到
+        {menuName:"父节点1", open:true, children:[
+                {menuName:"子节点1"}, {menuName:"子节点2"}]},
+        {menuName:"父节点2", open:true, children:[
+                {menuName:"子节点3"}, {menuName:"子节点4"}]},
+        {menuName:"父节点3", open:true, children:[
+                {menuName:"子节点5"}, {menuName:"子节点6"}]}
+    ];
+
+    zTreeObj = $.fn.zTree.init($("#treeDemo"), settingss, zNodes); //初始化树
+    zTreeObj.expandAll(true);    //true 节点全部展开、false节点收缩
+</script>
+</html>

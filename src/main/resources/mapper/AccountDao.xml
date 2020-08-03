@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qssy.exam.webexam.dao.AccountDao">
+    <resultMap id="Accounts" type="account">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+    <select id="findAccountByUsername" parameterType="String" resultType="Account">
+        select * from account where username = #{username}
+    </select>
+
+    <select id="findAllAccount" resultMap="Accounts">
+        select * from account
+    </select>
+
+    <delete id="deleteById" parameterType="int" >
+    delete from account where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="saveAccount" parameterType="list" >
+		INSERT INTO account(
+		username,
+		password
+		)
+		VALUES(
+		#{username},
+		#{password}
+		);
+	</insert>
+
+    <select id="findById" resultMap="Accounts">
+        select * from account where id=#{id,jdbcType=INTEGER}
+    </select>
+
+    <update id="EditById" parameterType="Account" >
+        update account
+        <set>
+            username = #{username,jdbcType=VARCHAR},
+            password = #{password,jdbcType=VARCHAR}
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" language="java">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+</head>
+<body>
+<div style="margin: 0 auto">
+    <form action="/Product/Edit" method="post">
+
+        <table border="1" id="editProduct">
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>type</td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="product:${edit}">
+                <td> <input name="id" th:value="${product.id}"/></td>
+                <td><input name="productName" th:value="${product.productName}"/></td>
+                <td><input name="productType" th:value="${product.productType}"/></td>
+            </tr>
+            <!--<ul th:each="product:${edit}">
+                <li>
+                    <label for="hotelName" class="col-sm-2 control-label">酒店名字</label>
+                    <input id="hotelName" name="id" th:value="${product.id}"/>
+                </li>
+            </ul>-->
+            </tbody>
+
+        </table>
+        <button type="submit">提交</button>
+    </form>
+</div>
+</body>
+</html>
